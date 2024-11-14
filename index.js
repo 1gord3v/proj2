@@ -7,6 +7,7 @@ const $answers = document.querySelectorAll(".answer")
 
 let currentQuestionIndex = 0
 let totalCorrect = 0
+const totalQuestions = 10
 
 $startGameButton.addEventListener("click", startGame)
 $nextQuestionButton.addEventListener("click", displayNextQuestion)
@@ -21,7 +22,7 @@ function startGame() {
 function displayNextQuestion() {
   resetState()
   
-  if (questions.length === currentQuestionIndex) {
+  if (currentQuestionIndex >= totalQuestions || currentQuestionIndex >= questions.length) {
     return finishGame()
   }
 
@@ -77,24 +78,9 @@ function selectAnswer(event) {
 }
 
 function finishGame() {
-  const totalQuestions = questions.length
   const performance = Math.floor(totalCorrect * 100 / totalQuestions)
   
-  let message = ""
-
-  switch (true) {
-    case (performance >= 90):
-      message = "Você é o bichão :)"
-      break
-    case (performance >= 70):
-      message = "Razoável :@"
-      break
-    case (performance >= 50):
-      message = "Na espinha :/"
-      break
-    default:
-      message = "Você é uma mula :("
-  }
+  let message = getPerformanceMessage(totalCorrect)
 
   $questionsContainer.innerHTML = 
   `
@@ -109,6 +95,48 @@ function finishGame() {
       Refazer teste
     </button>
   `
+}
+
+function getPerformanceMessage(score) {
+  const messages = {
+    excellent: [
+      "Você é o Einstein dos quizzes! 🎉",
+      "Incrível! Nem eu sabia que dava para acertar tudo! 🤯",
+      "10/10! Agora eu tenho medo de você. 😅",
+      "Você é o professor, eu sou só o assistente. 🥇",
+      "Nota máxima! Preciso te chamar para o próximo quiz! 😎"
+    ],
+    good: [
+      "Nada mal, quase um gênio! 😏",
+      "Passou, mas ainda não é brilhante. ✨",
+      "Mais sorte da próxima vez, você foi bem! 😄",
+      "Tá quase lá! 6/10 já é algo. 😅",
+      "Boa! Mas ainda dá para melhorar, hein? 🤔"
+    ],
+    average: [
+      "Apenas na média... Alguém precisa estudar mais. 📚",
+      "Você é o rei do 'mais ou menos'. 👑",
+      "Quase reprovado, hein? Estude um pouco mais! 😬",
+      "Você tá na média, mas quem quer só isso? 🤷‍♂️",
+      "Só média? Vou chamar o professor pra te ajudar! 📖"
+    ],
+    poor: [
+      "Estude mais. Ou muito mais. 🤦‍♂️",
+      "É... você tentou, né? 😐",
+      "Parece que você chutou tudo! 😂",
+      "Não deu... melhor ficar nos jogos de tabuleiro. 🃏",
+      "1/10? Pelo menos você tentou! 😅"
+    ]
+  }
+
+  if (score === 10) return randomMessage(messages.excellent)
+  if (score >= 6) return randomMessage(messages.good)
+  if (score >= 3) return randomMessage(messages.average)
+  return randomMessage(messages.poor)
+}
+
+function randomMessage(array) {
+  return array[Math.floor(Math.random() * array.length)]
 }
 
 function shuffleArray(array) {
