@@ -24,7 +24,9 @@ Este projeto utiliza um estilo simples e limpo, com um layout centrado na págin
 * JavaScript: Lógica do quiz, manipulação DOM e interação com o usuário.
 
 ## 📸 Demonstração
-[gif](C:\Users\lucia\Projetos de Estudos\proj2\assents\chrome_zKZb86YBXa.gif)
+
+![Demonstração](./assets/chrome_zKZb86YBXa.gif)
+
 
 ## ⚙️ Como Usar
 </BR>
