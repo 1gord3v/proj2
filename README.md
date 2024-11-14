@@ -2,7 +2,10 @@
 
 ## 📸 Demonstração
 
-![Demonstração](./assets/demo.gif)
+* Demostração
+  
+![Demonstração](./assents/demo.gif)
+
 
 
 </BR>
