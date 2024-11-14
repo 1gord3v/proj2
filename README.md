@@ -1,4 +1,9 @@
-# 🧠 Projeto Quiz Interativo</BR>
+## 🧠 Projeto Quiz Interativo</BR>
+
+## 📸 Demonstração
+
+![Demonstração](./assets/demo.gif)
+
 </BR>
 Bem-vindo ao projeto de Quiz Interativo! Este é um projeto básico em HTML, CSS e JavaScript que simula um quiz de perguntas e respostas, ideal para iniciantes na programação. 🎉</BR>
 </BR>
@@ -22,11 +27,6 @@ Este projeto utiliza um estilo simples e limpo, com um layout centrado na págin
 * HTML: Estrutura da página e conteúdo principal.
 * CSS: Estilização e layout da interface.
 * JavaScript: Lógica do quiz, manipulação DOM e interação com o usuário.
-
-## 📸 Demonstração
-
-![Demonstração](./assets/chrome_zKZb86YBXa.gif)
-
 
 ## ⚙️ Como Usar
 </BR>
