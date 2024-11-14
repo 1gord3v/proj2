@@ -4,6 +4,7 @@
 
 ![Demonstração](./assets/demo.gif)
 
+
 </BR>
 Bem-vindo ao projeto de Quiz Interativo! Este é um projeto básico em HTML, CSS e JavaScript que simula um quiz de perguntas e respostas, ideal para iniciantes na programação. 🎉</BR>
 </BR>
