@@ -35,13 +35,26 @@ Este projeto utiliza um estilo simples e limpo, com um layout centrado na págin
    git clone https://github.com/seu-usuario/quiz-interativo.git
 ```
 </BR>
-2. Abra o arquivo index.html em seu navegador.
+2. Configure um Servidor Local</BR>
 </BR>
-3. Clique no botão Iniciar Quiz para começar a responder às perguntas.
+* Para rodar o quiz corretamente em um servidor local, recomendamos usar a extensão Live Server no Visual Studio Code (VS Code):</BR>
 </BR>
-4. Escolha uma resposta para cada pergunta e clique em Próxima Pergunta para continuar.
+1. Abra o projeto no VS Code.</BR>
+- No VS Code, instale a extensão Live Server:</BR>
+- Vá até a aba Extensões (ícone de quadrado no menu lateral).</BR>
+- Pesquise por "Live Server" e instale a extensão criada por Ritwick Dey.</BR>
 </BR>
-5. No final do quiz, você verá sua pontuação e uma mensagem de desempenho baseada na sua pontuação.
+- Com o projeto aberto, clique com o botão direito no arquivo index.html e selecione Open with Live Server.</BR>
+- O Live Server abrirá o projeto automaticamente no seu navegador padrão, em um endereço local (geralmente http://127.0.0.1:5500/).</BR>
+</BR>
+3. Usando o Quiz</BR>
+</BR>
+* Clique em "Iniciar Quiz" para começar a responder as perguntas.</BR>
+* Após selecionar uma resposta para uma pergunta, o quiz bloqueará as opções, garantindo que você não altere a resposta depois.</BR>
+* Clique em "Próxima Pergunta" para continuar até completar as 10 questões.</BR>
+* No final, o quiz exibirá uma mensagem de desempenho com uma avaliação divertida baseada no número de respostas corretas.</BR>
+* Caso deseje, clique em "Fazer Novo teste?" para refazer o quiz. As perguntas serão reorganizadas aleatoriamente e as respostas também serão embaralhadas, proporcionando uma nova experiência.</BR>
+
 </BR>
 
 ## 📂 Estrutura do Projeto
