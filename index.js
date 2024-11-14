@@ -27,7 +27,7 @@ function displayNextQuestion() {
   }
 
   const currentQuestion = questions[currentQuestionIndex]
-  $questionText.textContent = currentQuestion.question
+  $questionText.textContent = `Pergunta ${currentQuestionIndex + 1}: ${currentQuestion.question}`
   
   shuffleArray(currentQuestion.answers) // Embaralha as respostas
 
