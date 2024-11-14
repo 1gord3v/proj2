@@ -30,6 +30,7 @@ Este projeto utiliza um estilo simples e limpo, com um layout centrado na págin
 </BR>
 1. Clone este repositório:</BR>
 </BR>
+
 ```
    git clone https://github.com/seu-usuario/quiz-interativo.git
 ```
@@ -45,6 +46,7 @@ Este projeto utiliza um estilo simples e limpo, com um layout centrado na págin
 
 ## 📂 Estrutura do Projeto
 </BR>
+
 ```
 quiz-interativo/
 ├── index.html      # Estrutura HTML da página
