@@ -1,29 +1,34 @@
+// Seleção de elementos HTML
 const $startGameButton = document.querySelector(".start-quiz")
 const $nextQuestionButton = document.querySelector(".next-question")
 const $questionsContainer = document.querySelector(".questions-container")
 const $questionText = document.querySelector(".question")
 const $answersContainer = document.querySelector(".answers-container")
-const $answers = document.querySelectorAll(".answer")
 
+// Variáveis de controle do quiz
 let currentQuestionIndex = 0
 let totalCorrect = 0
 const totalQuestions = 10
 
+// Eventos de clique nos botões
 $startGameButton.addEventListener("click", startGame)
 $nextQuestionButton.addEventListener("click", displayNextQuestion)
 
+// Função para iniciar o quiz
 function startGame() {
-  $startGameButton.classList.add("hide")
-  $questionsContainer.classList.remove("hide")
-  shuffleArray(questions) // Embaralha as perguntas
-  displayNextQuestion()
+  $startGameButton.classList.add("hide") // Esconde o botão de iniciar
+  $questionsContainer.classList.remove("hide") // Mostra o container de perguntas
+  shuffleArray(questions) // Embaralha a ordem das perguntas
+  displayNextQuestion() // Exibe a primeira pergunta
 }
 
+// Função para exibir a próxima pergunta
 function displayNextQuestion() {
-  resetState()
+  resetState() // Limpa o estado anterior das respostas
   
+  // Verifica se o quiz terminou
   if (currentQuestionIndex >= totalQuestions || currentQuestionIndex >= questions.length) {
-    return finishGame()
+    return finishGame() // Finaliza o jogo
   }
 
   const currentQuestion = questions[currentQuestionIndex]
@@ -40,22 +45,27 @@ function displayNextQuestion() {
     }
     $answersContainer.appendChild(newAnswer)
 
+    // Evento de clique nas respostas
     newAnswer.addEventListener("click", selectAnswer)
   })
 }
 
+// Função para limpar o estado anterior
 function resetState() {
+  // Remove as respostas antigas
   while ($answersContainer.firstChild) {
     $answersContainer.removeChild($answersContainer.firstChild)
   }
 
   document.body.removeAttribute("class")
-  $nextQuestionButton.classList.add("hide")
+  $nextQuestionButton.classList.add("hide") // Esconde o botão de próxima pergunta
 }
 
+// Função chamada ao selecionar uma resposta
 function selectAnswer(event) {
   const answerClicked = event.target
 
+  // Verifica se a resposta está correta e incrementa a pontuação
   if (answerClicked.dataset.correct) {
     document.body.classList.add("correct")
     totalCorrect++
@@ -63,9 +73,9 @@ function selectAnswer(event) {
     document.body.classList.add("incorrect") 
   }
 
+  // Marca todas as respostas como desabilitadas e mostra a correta/incorreta
   document.querySelectorAll(".answer").forEach(button => {
     button.disabled = true
-
     if (button.dataset.correct) {
       button.classList.add("correct")
     } else {
@@ -73,30 +83,34 @@ function selectAnswer(event) {
     }
   })
   
-  $nextQuestionButton.classList.remove("hide")
-  currentQuestionIndex++
+  $nextQuestionButton.classList.remove("hide") // Mostra o botão de próxima pergunta
+  currentQuestionIndex++ // Passa para a próxima pergunta
 }
 
+// Função para finalizar o jogo e exibir o resultado
 function finishGame() {
   const performance = Math.floor(totalCorrect * 100 / totalQuestions)
   
   let message = getPerformanceMessage(totalCorrect)
 
+  // Exibe a mensagem final com a pontuação e o botão de refazer teste
   $questionsContainer.innerHTML = 
   `
     <p class="final-message">
-      Você acertou ${totalCorrect} de ${totalQuestions} questões!
-      <span>Resultado: ${message}</span>
+      Bem vindo ao seu novo jeito de estudar! <br><br>
+      Você acertou ${totalCorrect} de ${totalQuestions} questões!<br><br>
+      Resultado: ${message}
     </p>
     <button 
-      onclick=window.location.reload() 
-      class="button"
+      onclick="window.location.reload()" 
+      class="button retry-quiz"
     >
-      Refazer teste
+      Fazer Novo teste?
     </button>
   `
 }
 
+// Função para gerar uma mensagem baseada na pontuação
 function getPerformanceMessage(score) {
   const messages = {
     excellent: [
@@ -129,22 +143,26 @@ function getPerformanceMessage(score) {
     ]
   }
 
+  // Retorna uma mensagem aleatória com base na faixa de pontuação
   if (score === 10) return randomMessage(messages.excellent)
   if (score >= 6) return randomMessage(messages.good)
   if (score >= 3) return randomMessage(messages.average)
   return randomMessage(messages.poor)
 }
 
+// Função para escolher uma mensagem aleatória de um array
 function randomMessage(array) {
   return array[Math.floor(Math.random() * array.length)]
 }
 
+// Função para embaralhar elementos de um array
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[array[i], array[j]] = [array[j], array[i]]
   }
 }
+
 
 const questions = [
   {

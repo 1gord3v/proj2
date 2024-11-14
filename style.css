@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/* Estilo geral do corpo da página */
 body {
   background-color: #000; /* Fundo preto */
   color: #fff; /* Texto branco */
@@ -17,6 +18,7 @@ body {
   padding: 20px 0;
 }
 
+/* Estilo da caixa principal do conteúdo */
 .container {
   width: 100%;
   max-width: 600px;
@@ -26,6 +28,7 @@ body {
   box-shadow: 0 0 10px 2px rgba(215, 84, 19, 0.5); /* Sombra laranja */
 }
 
+/* Botão de iniciar o quiz */
 .start-quiz {
   background-color: #ffa500; /* Botão laranja */
   color: #000; /* Texto preto */
@@ -40,14 +43,16 @@ body {
 }
 
 .start-quiz:hover {
-  background-color: #ff8c00;
+  background-color: #ff8c00; /* Cor mais escura ao passar o mouse */
 }
 
+/* Mensagem de boas-vindas */
 .welcome-message {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
+/* Estilo do container de perguntas */
 .questions-container {
   width: 100%;
   display: flex;
@@ -56,6 +61,7 @@ body {
   gap: 20px;
 }
 
+/* Estilo do texto das perguntas */
 .question {
   font-size: 18px; /* Reduzido para caber na tela */
   font-weight: bold;
@@ -63,13 +69,15 @@ body {
   margin-bottom: 20px;
 }
 
+/* Container para as respostas */
 .answers-container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Espaçamento menor entre as respostas */
+  gap: 10px; /* Espaçamento entre as respostas */
 }
 
+/* Estilo de cada botão de resposta */
 .answer {
   background-color: #333; /* Fundo preto das respostas */
   color: #fff;
@@ -82,21 +90,24 @@ body {
 }
 
 .answer:hover {
-  background-color: #444;
+  background-color: #444; /* Fundo mais claro ao passar o mouse */
 }
 
 .answer:disabled {
-  cursor: not-allowed;
+  cursor: not-allowed; /* Cursor de bloqueio para respostas desativadas */
 }
 
+/* Borda verde para resposta correta */
 .answer.correct {
-  border-color: #008000; /* Borda verde ao selecionar a resposta correta */
+  border-color: #008000;
 }
 
+/* Borda vermelha para resposta incorreta */
 .answer.incorrect {
-  border-color: #ff4500; /* Borda vermelha para incorreta */
+  border-color: #ff4500;
 }
 
+/* Botão de próxima pergunta */
 .next-question {
   background-color: #ffa500;
   color: #000;
@@ -110,10 +121,10 @@ body {
 }
 
 .next-question:hover {
-  background-color: #ff8c00;
+  background-color: #ff8c00; /* Cor mais escura ao passar o mouse */
 }
 
-/* Mensagem Final */
+/* Mensagem final de resultado */
 .final-message {
   font-size: 28px;
   color: #fff;
@@ -124,6 +135,24 @@ body {
   display: block;
   margin-top: 16px;
   font-size: 24px;
+}
+
+/* Botão de refazer teste estilizado igual ao iniciar quiz */
+.retry-quiz {
+  background-color: #ffa500; /* Botão laranja */
+  color: #000; /* Texto preto */
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.retry-quiz:hover {
+  background-color: #ff8c00; /* Cor mais escura ao passar o mouse */
 }
 
 /* Ocultar elementos */
