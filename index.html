@@ -2,29 +2,20 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Interativo</title>
   <link rel="stylesheet" href="style.css">
-  <script src="index.js" async></script>
-
-  <title>Simulador de Estudos</title>
 </head>
 <body>
   <div class="container">
+    <p class="welcome-message">Bem vindo ao seu novo jeito de estudar!</p>
+    <button class="start-quiz">INICIAR QUIZ</button>
     <div class="questions-container hide">
-      <span class="question">Pergunta aqui?</span>
-      <div class="answers-container">
-        <button class="answer button">Resposta A</button>
-        <button class="answer button">Resposta B</button>
-        <button class="answer button">Resposta C</button>
-        <button class="answer button">Resposta D</button>
-        <button class="answer button">Resposta E</button>
-      </div>
-    </div>
-    <div class="controls-container">
-      <button class="start-quiz button">Pergunta?</button>
-      <button class="next-question button hide">Próxima pergunta</button>
+      <h2 class="question"></h2>
+      <div class="answers-container"></div>
+      <button class="next-question hide">Próxima Pergunta</button>
     </div>
   </div>
+  <script src="index.js"></script>
 </body>
 </html>

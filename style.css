@@ -1,104 +1,161 @@
 * {
-     padding: 0;
-     margin: 0;
-     box-sizing: border-box;
-   }
-   
-   button {
-     cursor: pointer;
-   }
-   
-   body {
-     background-image: radial-gradient(circle, #dae3e5, #a1c6ea, #517ebd);
-     background-attachment: fixed;
-     color: #0f0f0f;
-     height: 100vh;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-   }
-   
-   .container {
-     background-image: linear-gradient(to botton,#0c4eaa, #3070b1, #56a1b1);
-     width: 100%;
-     max-width: 1000px;
-     background-position: flex;
-     border: 3px solid #070707;
-     border-radius: 8px;
-     padding: 16px;
-     box-shadow: 0 0 3px 3px;
-   
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-   }
-   
-   .questions-container {
-     width: 100%;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     gap: 30px;
-   }
-   
-   .question {
-     font-size: 18px;
-     font-weight: bold;
-     text-align: center;
-   }
-   
-   .answers-container {
-     width: 100%;
-     display: grid;
-     gap: 16px;
-   }
-   
-   .answer:disabled {
-     cursor: not-allowed;
-   }
-   
-   .next-question {
-     margin-top: 32px;
-   }
-   
-   .button {
-     background-color: #7b94e0;
-     color: #080808;
-     font-size: 16px;
-     font-weight: bold;
-     border: 0;
-     border-radius: 6px;
-     height: 48px;
-     padding: 0 32px;
-   
-     transition: filter 0.1s;
-   }
-   
-   .button:not(:disabled):hover {
-     filter: brightness(0.8);
-   }
-   
-   /* Finish game */
-   .final-message {
-     font-size: 20px;
-     text-align: center;
-   }
-   
-   .final-message span {
-     display: block;
-     margin-top: 8px;
-   }
-   
-   /* General styles */
-   .hide {
-     display: none;
-   }
-   
-   .correct {
-     background-color: #049b48;
-   }
-   
-   .incorrect {
-     background-color: #a10101;
-   }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo geral do corpo da página */
+body {
+  background-color: #000; /* Fundo preto */
+  color: #fff; /* Texto branco */
+  font-family: Arial, sans-serif; /* Fonte mais clara */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinha o conteúdo ao topo */
+  text-align: center;
+  overflow-x: hidden; /* Impede rolagem horizontal */
+  padding: 20px 0;
+}
+
+/* Estilo da caixa principal do conteúdo */
+.container {
+  width: 100%;
+  max-width: 600px;
+  border: 3px solid #d75413; /* Borda laranja */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px 2px rgba(215, 84, 19, 0.5); /* Sombra laranja */
+}
+
+/* Botão de iniciar o quiz */
+.start-quiz {
+  background-color: #ffa500; /* Botão laranja */
+  color: #000; /* Texto preto */
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.start-quiz:hover {
+  background-color: #ff8c00; /* Cor mais escura ao passar o mouse */
+}
+
+/* Mensagem de boas-vindas */
+.welcome-message {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilo do container de perguntas */
+.questions-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Estilo do texto das perguntas */
+.question {
+  font-size: 18px; /* Reduzido para caber na tela */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Container para as respostas */
+.answers-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaçamento entre as respostas */
+}
+
+/* Estilo de cada botão de resposta */
+.answer {
+  background-color: #333; /* Fundo preto das respostas */
+  color: #fff;
+  font-size: 16px; /* Reduzido para caber melhor */
+  border: 2px solid transparent;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.answer:hover {
+  background-color: #444; /* Fundo mais claro ao passar o mouse */
+}
+
+.answer:disabled {
+  cursor: not-allowed; /* Cursor de bloqueio para respostas desativadas */
+}
+
+/* Borda verde para resposta correta */
+.answer.correct {
+  border-color: #008000;
+}
+
+/* Borda vermelha para resposta incorreta */
+.answer.incorrect {
+  border-color: #ff4500;
+}
+
+/* Botão de próxima pergunta */
+.next-question {
+  background-color: #ffa500;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.next-question:hover {
+  background-color: #ff8c00; /* Cor mais escura ao passar o mouse */
+}
+
+/* Mensagem final de resultado */
+.final-message {
+  font-size: 28px;
+  color: #fff;
+  text-align: center;
+}
+
+.final-message span {
+  display: block;
+  margin-top: 16px;
+  font-size: 24px;
+}
+
+/* Botão de refazer teste estilizado igual ao iniciar quiz */
+.retry-quiz {
+  background-color: #ffa500; /* Botão laranja */
+  color: #000; /* Texto preto */
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.retry-quiz:hover {
+  background-color: #ff8c00; /* Cor mais escura ao passar o mouse */
+}
+
+/* Ocultar elementos */
+.hide {
+  display: none;
+}
