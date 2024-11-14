@@ -97,7 +97,7 @@ function finishGame() {
   $questionsContainer.innerHTML = 
   `
     <p class="final-message">
-      Bem vindo ao seu novo jeito de estudar! <br><br>
+     
       Você acertou ${totalCorrect} de ${totalQuestions} questões!<br><br>
       Resultado: ${message}
     </p>
